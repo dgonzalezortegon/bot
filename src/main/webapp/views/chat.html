@@ -1,0 +1,70 @@
+
+<h1>{{app.titulo}}</h1>
+<div ng-controller="PersonasControlador as vm">
+
+<!-- Formulario de Login -->
+	<form name="miFormLogin"   ng-if="vm.user==null">
+	<p>
+	<table>
+	
+	
+	<tr>
+		<td><span>UserID   BOT </span></td> 
+		<td><input  type="text" id="login" name="login" ng-model="vm.acceso.login"></td>
+		
+	</tr>
+		<br>
+	<tr>
+		<td><span>Password BOT </span></td> 
+		<td><input  type="password" id="password" name="password" ng-model="vm.acceso.password"></td>
+	</tr>
+	</table>	
+	</p>
+	<span>  <button ng-click="app.cambia(1);vm.access()" >Enviar</button></span>
+	
+	</form>	
+	
+	
+	<div ng-if="vm.user!=null">
+	<span> Select Instance</span>
+		<select ng-model="vm.instance" name="instances" ng-change="vm.selectInstance()"  ng-options="instance as instance.name for instance in vm.listInstances track by instance.id" >
+		</select>
+	</div>
+
+	<div ng-if="vm.user!=null && vm.instance!=null">
+	<!-- List Messages -->
+	<div class="scroll-main">
+		<div ng-repeat="e in vm.listado track by e.id">
+			<span>{{e.mesg}}</span>
+		</div>
+		&nbsp;
+		 <div id="bottom"></div>
+	</div>
+	
+	
+	<form name="miForm">
+	<p>
+		<span>Message </span> 
+		<input  type="textarea" id="nombre" name="nombre" ng-model="vm.elemento.mesg">
+		<br>
+		
+	</p>
+	<span>Correction </span> 
+	<input type="checkbox" id="correction" name="correction" ng-model="vm.correction">
+	
+	<!-- Botones de Agua -->
+	<div ng-if="vm.vasos">
+	<span>  <button ng-click="vm.send1()" >1</button></span>
+	<span>  <button ng-click="vm.sendMas1()" >2</button></span>
+	<span>  <button ng-click="vm.sendMas1()" >3</button></span>
+	<span>  <button ng-click="vm.sendMas1()" >4</button></span>
+	</div>
+	</br>
+	<span>  <button ng-click="vm.send()" >Enviar</button></span>
+	 <span><button ng-click="vm.cancel()">Volver</button> </span>
+	
+	</form>
+	
+	</div>
+		
+</div>

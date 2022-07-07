@@ -27,7 +27,7 @@
 
 		<postgresql.version>9.4-1203-jdbc42</postgresql.version>
 		<jackson.version>2.9.4</jackson.version>
-		<xalan.version>2.7.1</xalan.version>
+		<xalan.version>2.7.2</xalan.version>
 
 	</properties>
 
